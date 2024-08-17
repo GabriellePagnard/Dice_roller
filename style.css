@@ -1,4 +1,4 @@
-/* Style global */
+/* Style global pour la page */
 body, html {
     margin: 0;
     padding: 0;
@@ -30,7 +30,7 @@ body, html {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Style personnalisé pour les dés */
+/* Style des dés */
 .dice {
     width: 80px;
     height: 80px;
@@ -54,6 +54,7 @@ body, html {
     position: absolute;
 }
 
+/* Positionnement des points pour chaque face des dés */
 .dot1 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
 .dot2 { top: 20%; left: 20%; }
 .dot3 { top: 20%; right: 20%; }
@@ -67,17 +68,17 @@ body, html {
 .dot6-row2-left { bottom: 15%; left: 20%; }
 .dot6-row2-right { bottom: 15%; right: 20%; }
 
-/* Animations de lancer de dés */
+/* Animation pour simuler le lancer de dés */
 .dice.animate {
     transform: rotate(360deg);
 }
 
-/* Style personnalisé pour les boutons */
+/* Style des boutons */
 button {
     text-transform: uppercase;
 }
 
-/* Curseur dynamique avec jauge colorée */
+/* Curseur avec jauge colorée */
 input[type="range"] {
     width: 100%;
     -webkit-appearance: none;
@@ -90,6 +91,7 @@ input[type="range"] {
     margin: 10px 0;
 }
 
+/* Style du "thumb" du curseur */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -100,7 +102,7 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-/* Style du bouton "Lancer les dés" en rose foncé (framboise) */
+/* Style du bouton "Nouveau Lancer" */
 #roll-button {
     background-color: #C2185B;
     color: white;
@@ -115,7 +117,7 @@ input[type="range"]::-webkit-slider-thumb {
     background-color: #D81B60;
 }
 
-/* Style du bouton "Relancer" en bleu foncé (bleu roi) */
+/* Style du bouton "Relancer" */
 #replay-button {
     background-color: #1E3A8A;
     color: white;
@@ -131,7 +133,7 @@ input[type="range"]::-webkit-slider-thumb {
     background-color: #374ABD;
 }
 
-/* Responsive Design */
+/* Responsive Design pour mobile */
 @media (max-width: 640px) {
     #dice-container {
         padding: 15px;
