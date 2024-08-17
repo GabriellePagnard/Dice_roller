@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanceur de Dés</title>
+    <!-- Import Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">🎲 Lanceur de Dés</h1>
+        
+        <!-- Sélecteur de nombre de dés -->
+        <div class="flex justify-center mb-4">
+            <label for="dice-count" class="font-semibold text-gray-700 mr-4">Nombre de dés :</label>
+            <input id="dice-count" type="number" min="1" max="100" value="1" class="w-16 border rounded-lg p-2 text-center text-lg">
+        </div>
+        
+        <!-- Bouton pour lancer les dés -->
+        <div class="flex justify-center mb-6">
+            <button id="roll-button" class="bg-blue-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300">
+                Lancer les dés
+            </button>
+        </div>
+        
+        <!-- Conteneur des dés -->
+        <div id="dice-container" class="grid grid-cols-5 gap-4"></div>
+        
+        <!-- Bouton pour relancer les dés -->
+        <div class="flex justify-center mt-6">
+            <button id="replay-button" class="bg-green-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-green-600 transition-colors duration-300 hidden">
+                Relancer
+            </button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

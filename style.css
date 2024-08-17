@@ -1,0 +1,30 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Style personnalisé pour les dés */
+.dice {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s ease;
+}
+
+/* Animation pour le lancer de dés */
+.dice.animate {
+    transform: rotate(360deg);
+}
+
+/* Style pour les résultats */
+.dice-result {
+    font-weight: bold;
+    color: #333;
+}
