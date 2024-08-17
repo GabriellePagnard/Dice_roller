@@ -4,39 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lanceur de Dés</title>
+    <title>Jeu de Lancer de Dés</title>
     <!-- Import Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center min-h-screen">
-    <div class="w-full max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
-        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">🎲 Lanceur de Dés</h1>
-        
-        <!-- Sélecteur de nombre de dés -->
-        <div class="flex justify-center mb-4">
-            <label for="dice-count" class="font-semibold text-gray-700 mr-4">Nombre de dés :</label>
-            <input id="dice-count" type="number" min="1" max="100" value="1" class="w-16 border rounded-lg p-2 text-center text-lg">
-        </div>
-        
-        <!-- Bouton pour lancer les dés -->
-        <div class="flex justify-center mb-6">
-            <button id="roll-button" class="bg-blue-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300">
-                Lancer les dés
+<body>
+    <!-- Conteneur de l'image d'arrière-plan avec flou -->
+    <div id="background" class="absolute inset-0">
+        <img src="images/background.jpg" alt="Background Image" class="w-full h-full object-cover filter blur-md">
+    </div>
+
+    <!-- Lanceur de dés -->
+    <div id="dice-container" class="relative z-10 mx-auto mt-20 bg-white bg-opacity-80 rounded-lg p-6 max-w-md">
+        <div class="text-center space-y-4">
+            <h1 class="text-4xl font-bold text-gray-800">Lancer de Dés</h1>
+            <!-- Sélecteur du nombre de dés -->
+            <div>
+                <label for="dice-count" class="block text-lg font-semibold text-gray-700">Nombre de dés :</label>
+                <select id="dice-count" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="1">1 dé</option>
+                    <option value="2">2 dés</option>
+                    <option value="3">3 dés</option>
+                    <option value="4">4 dés</option>
+                    <option value="5">5 dés</option>
+                    <option value="6">6 dés</option>
+                    <option value="7">7 dés</option>
+                    <option value="8">8 dés</option>
+                    <option value="9">9 dés</option>
+                    <option value="10">10 dés</option>
+                </select>
+            </div>
+            <div id="dice-grid" class="flex flex-wrap justify-center gap-4 mt-6"></div>
+            <button id="roll-button" class="bg-pink-700 text-white font-semibold px-8 py-4 rounded-lg hover:bg-pink-800">
+                Lancer les Dés
             </button>
-        </div>
-        
-        <!-- Conteneur des dés -->
-        <div id="dice-container" class="grid grid-cols-5 gap-4"></div>
-        
-        <!-- Bouton pour relancer les dés -->
-        <div class="flex justify-center mt-6">
-            <button id="replay-button" class="bg-green-500 text-white font-semibold px-6 py-2 rounded-lg hover:bg-green-600 transition-colors duration-300 hidden">
+            <button id="replay-button" class="hidden mt-4 bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-800">
                 Relancer
             </button>
         </div>
     </div>
+
+    <!-- Inclusion du script JavaScript -->
     <script src="app.js"></script>
 </body>
 

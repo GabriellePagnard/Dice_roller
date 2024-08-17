@@ -1,30 +1,91 @@
+/* Style global */
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+/* Conteneur de l'image d'arrière-plan */
+#background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(6px); /* Flou léger pour laisser l'image reconnaissable */
+}
+
+/* Conteneur du lanceur de dés */
+#dice-container {
+    background-color: rgba(255, 255, 255, 0.85); /* Transparence légère pour le conteneur */
+    border-radius: 1rem;
+    padding: 20px;
 }
 
 /* Style personnalisé pour les dés */
 .dice {
-    width: 60px;
-    height: 60px;
+    width: 80px; /* Dés plus gros pour une meilleure lisibilité */
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    background-color: white;
+    background-color: white; /* Les dés restent totalement opaques */
     border-radius: 0.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     transition: transform 0.5s ease;
+    position: relative;
 }
 
-/* Animation pour le lancer de dés */
+/* Points des dés */
+.dot {
+    width: 14px; /* Points légèrement plus grands */
+    height: 14px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+}
+
+/* Positionnement des points */
+.dot1 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.dot2 { top: 25%; left: 25%; }
+.dot3 { top: 25%; right: 25%; }
+.dot4 { bottom: 25%; left: 25%; }
+.dot5 { bottom: 25%; right: 25%; }
+.dot6 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+/* Animations de lancer de dés */
 .dice.animate {
     transform: rotate(360deg);
 }
 
-/* Style pour les résultats */
-.dice-result {
-    font-weight: bold;
-    color: #333;
+/* Style personnalisé pour les boutons */
+button {
+    text-transform: uppercase;
+}
+
+/* Bouton "Lancer les dés" en rose foncé (framboise) */
+#roll-button {
+    background-color: #C2185B; /* Rose foncé (framboise) */
+    color: white;
+}
+
+#roll-button:hover {
+    background-color: #D81B60; /* Couleur légèrement plus claire au survol */
+}
+
+/* Bouton "Relancer" en bleu foncé (bleu roi) */
+#replay-button {
+    background-color: #1E3A8A; /* Bleu foncé (bleu roi) */
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#replay-button:hover {
+    background-color: #374ABD; /* Couleur légèrement plus claire au survol */
 }

@@ -2,44 +2,58 @@
 const diceCountInput = document.getElementById('dice-count');
 const rollButton = document.getElementById('roll-button');
 const replayButton = document.getElementById('replay-button');
-const diceContainer = document.getElementById('dice-container');
+const diceGrid = document.getElementById('dice-grid');
 
 // Fonction pour générer un nombre aléatoire entre 1 et 6
 function rollDice() {
     return Math.floor(Math.random() * 6) + 1;
 }
 
-// Fonction pour créer un élément de dé
-function createDiceElement(result) {
-    const dice = document.createElement('div');
-    dice.className = 'dice';
-    dice.innerHTML = `<span class="dice-result">${result}</span>`;
-    return dice;
+// Fonction pour créer les éléments de points d'un dé en fonction du résultat
+function createDiceDots(result) {
+    const dots = document.createElement('div');
+    dots.className = 'dice';
+
+    if (result === 1) {
+        dots.innerHTML = '<div class="dot dot1"></div>';
+    } else if (result === 2) {
+        dots.innerHTML = '<div class="dot dot2"></div><div class="dot dot5"></div>';
+    } else if (result === 3) {
+        dots.innerHTML = '<div class="dot dot2"></div><div class="dot dot1"></div><div class="dot dot5"></div>';
+    } else if (result === 4) {
+        dots.innerHTML = '<div class="dot dot2"></div><div class="dot dot3"></div><div class="dot dot4"></div><div class="dot dot5"></div>';
+    } else if (result === 5) {
+        dots.innerHTML = '<div class="dot dot2"></div><div class="dot dot3"></div><div class="dot dot4"></div><div class="dot dot5"></div><div class="dot dot1"></div>';
+    } else if (result === 6) {
+        dots.innerHTML = '<div class="dot dot2"></div><div class="dot dot3"></div><div class="dot dot4"></div><div class="dot dot5"></div><div class="dot dot1"></div><div class="dot dot6"></div>';
+    }
+
+    return dots;
 }
 
-// Fonction pour animer le lancer de dés
-function animateDice(diceElements) {
-    diceElements.forEach(dice => {
-        dice.classList.add('animate');
-        setTimeout(() => dice.classList.remove('animate'), 500);
-    });
-}
-
-// Fonction pour lancer les dés
+// Fonction pour lancer tous les dés
 function rollAllDice() {
     const numberOfDice = parseInt(diceCountInput.value) || 1;
-    diceContainer.innerHTML = ''; // Réinitialiser le conteneur
+    diceGrid.innerHTML = ''; // Réinitialiser le conteneur
 
     const diceElements = [];
     for (let i = 0; i < numberOfDice; i++) {
         const result = rollDice();
-        const diceElement = createDiceElement(result);
-        diceContainer.appendChild(diceElement);
+        const diceElement = createDiceDots(result);
+        diceGrid.appendChild(diceElement);
         diceElements.push(diceElement);
     }
 
     animateDice(diceElements);
     replayButton.classList.remove('hidden');
+}
+
+// Fonction pour animer les dés
+function animateDice(diceElements) {
+    diceElements.forEach(dice => {
+        dice.classList.add('animate');
+        setTimeout(() => dice.classList.remove('animate'), 500);
+    });
 }
 
 // Gérer le clic sur le bouton "Lancer les dés"
