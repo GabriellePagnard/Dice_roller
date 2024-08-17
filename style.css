@@ -3,11 +3,11 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    overflow: hidden;
-    height: 100vh; /* S'assure que le conteneur occupe toute la hauteur */
+    height: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 /* Conteneur de l'image d'arrière-plan */
@@ -23,12 +23,11 @@ body, html {
 
 /* Conteneur du lanceur de dés */
 #dice-container {
-    background-color: rgba(255, 255, 255, 0.85); /* Transparence légère pour le conteneur */
+    background-color: rgba(255, 255, 255, 0.85);
     border-radius: 1rem;
     padding: 20px;
-    max-width: 600px; /* Limite la largeur du lanceur */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Légère ombre pour ajouter de la profondeur */
-    text-align: center;
+    max-width: 600px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Style personnalisé pour les dés */
@@ -40,53 +39,37 @@ body, html {
     align-items: center;
     background-color: white;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.1); /* Ombres supplémentaires */
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
     position: relative;
     margin: 10px;
 }
 
 /* Points des dés */
 .dot {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     background-color: black;
     border-radius: 50%;
     position: absolute;
 }
 
-/* Positionnement des points avec encore plus d'espacement */
 .dot1 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.dot2 { top: 15%; left: 15%; }
-.dot3 { top: 15%; right: 15%; }
-.dot4 { bottom: 15%; left: 15%; }
-.dot5 { bottom: 15%; right: 15%; }
-.dot6-left { top: 50%; left: 15%; transform: translateY(-50%); }
-.dot6-right { top: 50%; right: 15%; transform: translateY(-50%); }
-.dot6-row1-left { top: 15%; left: 15%; }
-.dot6-row1-right { top: 15%; right: 15%; }
-.dot6-row2-left { bottom: 15%; left: 15%; }
-.dot6-row2-right { bottom: 15%; right: 15%; }
+.dot2 { top: 20%; left: 20%; }
+.dot3 { top: 20%; right: 20%; }
+.dot4 { bottom: 20%; left: 20%; }
+.dot5 { bottom: 20%; right: 20%; }
+.dot6 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.dot6-row1-left { top: 15%; left: 20%; }
+.dot6-row1-right { top: 15%; right: 20%; }
+.dot6-left { top: 40%; left: 20%; }
+.dot6-right { top: 40%; right: 20%; }
+.dot6-row2-left { bottom: 15%; left: 20%; }
+.dot6-row2-right { bottom: 15%; right: 20%; }
 
-/* Animation du lancer de dés */
+/* Animations de lancer de dés */
 .dice.animate {
-    animation: roll 1s ease forwards;
-}
-
-/* Animation keyframes */
-@keyframes roll {
-    0% {
-        transform: rotate(0deg) translateY(0);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    50% {
-        transform: rotate(360deg) translateY(-20px); /* Simule un saut pendant le lancer */
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Accentue l'ombre lors du mouvement */
-    }
-    100% {
-        transform: rotate(720deg) translateY(0);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
+    transform: rotate(360deg);
 }
 
 /* Style personnalisé pour les boutons */
@@ -94,7 +77,30 @@ button {
     text-transform: uppercase;
 }
 
-/* Bouton "Lancer les dés" en rose foncé (framboise) */
+/* Curseur dynamique avec jauge colorée */
+input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: linear-gradient(to right, #1E3A8A 0%, #1E3A8A var(--percent), #C2185B var(--percent), #C2185B 100%);
+    border-radius: 5px;
+    outline: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #1E3A8A;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Style du bouton "Lancer les dés" en rose foncé (framboise) */
 #roll-button {
     background-color: #C2185B;
     color: white;
@@ -107,37 +113,6 @@ button {
 
 #roll-button:hover {
     background-color: #D81B60;
-}
-
-/* Curseur dynamique */
-input[type="range"] {
-    width: 100%;
-    -webkit-appearance: none;
-    appearance: none;
-    height: 8px;
-    background: #1E3A8A; /* Bleu foncé comme le bouton "Relancer" */
-    border-radius: 5px;
-    outline: none;
-    padding: 0;
-    margin: 10px 0;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #1E3A8A; /* Bleu foncé pour le point */
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-input[type="range"]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background: #1E3A8A;
-    border-radius: 50%;
-    cursor: pointer;
 }
 
 /* Style du bouton "Relancer" en bleu foncé (bleu roi) */

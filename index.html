@@ -4,31 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeu de Lancer de Dés</title>
+    <title>Lanceur de Dés</title>
     <!-- Import Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="flex justify-center items-center h-screen">
     <!-- Conteneur de l'image d'arrière-plan avec flou -->
     <div id="background" class="absolute inset-0">
         <img src="images/background.jpg" alt="Background Image" class="w-full h-full object-cover filter blur-md">
     </div>
 
-    <!-- Lanceur de dés centré verticalement et horizontalement -->
-    <div id="dice-container" class="relative z-10 mx-auto bg-white bg-opacity-80 rounded-lg p-6 flex items-center justify-center flex-col">
+    <!-- Lanceur de dés -->
+    <div id="dice-container" class="relative z-10 bg-white bg-opacity-80 rounded-lg p-6 max-w-md shadow-lg">
         <div class="text-center space-y-4">
-            <h1 class="text-4xl font-bold text-gray-800">Lancer de Dés</h1>
+            <h1 class="text-4xl font-bold text-blue-900">🎲 Lanceur de Dés 🎲</h1>
             <!-- Curseur du nombre de dés -->
             <div class="flex flex-col items-center">
-                <label for="dice-count" class="block text-lg font-semibold text-gray-700 mb-2">Nombre de dés :</label>
+                <label for="dice-count" class="block text-lg font-semibold text-blue-900 mb-2">Nombre de dés :</label>
                 <input id="dice-count" type="range" min="1" max="10" value="1" class="w-full slider">
-                <span id="dice-count-value" class="text-lg font-bold text-gray-800 mt-2">1</span>
+                <span id="dice-count-value" class="text-lg font-bold text-blue-900 mt-2">1</span>
             </div>
             <div id="dice-grid" class="flex flex-wrap justify-center gap-4 mt-6"></div>
             <button id="roll-button" class="bg-pink-700 text-white font-semibold px-8 py-4 rounded-lg hover:bg-pink-800">
-                Lancer les Dés
+                Nouveau Lancer
             </button>
             <button id="replay-button" class="hidden mt-4 bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg hover:bg-blue-800">
                 Relancer
