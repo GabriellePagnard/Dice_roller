@@ -16,25 +16,15 @@
         <img src="images/background.jpg" alt="Background Image" class="w-full h-full object-cover filter blur-md">
     </div>
 
-    <!-- Lanceur de dés -->
-    <div id="dice-container" class="relative z-10 mx-auto mt-20 bg-white bg-opacity-80 rounded-lg p-6 max-w-md">
+    <!-- Lanceur de dés centré verticalement et horizontalement -->
+    <div id="dice-container" class="relative z-10 mx-auto bg-white bg-opacity-80 rounded-lg p-6 flex items-center justify-center flex-col">
         <div class="text-center space-y-4">
             <h1 class="text-4xl font-bold text-gray-800">Lancer de Dés</h1>
-            <!-- Sélecteur du nombre de dés -->
-            <div>
-                <label for="dice-count" class="block text-lg font-semibold text-gray-700">Nombre de dés :</label>
-                <select id="dice-count" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option value="1">1 dé</option>
-                    <option value="2">2 dés</option>
-                    <option value="3">3 dés</option>
-                    <option value="4">4 dés</option>
-                    <option value="5">5 dés</option>
-                    <option value="6">6 dés</option>
-                    <option value="7">7 dés</option>
-                    <option value="8">8 dés</option>
-                    <option value="9">9 dés</option>
-                    <option value="10">10 dés</option>
-                </select>
+            <!-- Curseur du nombre de dés -->
+            <div class="flex flex-col items-center">
+                <label for="dice-count" class="block text-lg font-semibold text-gray-700 mb-2">Nombre de dés :</label>
+                <input id="dice-count" type="range" min="1" max="10" value="1" class="w-full slider">
+                <span id="dice-count-value" class="text-lg font-bold text-gray-800 mt-2">1</span>
             </div>
             <div id="dice-grid" class="flex flex-wrap justify-center gap-4 mt-6"></div>
             <button id="roll-button" class="bg-pink-700 text-white font-semibold px-8 py-4 rounded-lg hover:bg-pink-800">

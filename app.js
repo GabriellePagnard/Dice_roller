@@ -1,8 +1,16 @@
+// app.js
+
 // Variables pour les éléments du DOM
 const diceCountInput = document.getElementById('dice-count');
+const diceCountValue = document.getElementById('dice-count-value');
 const rollButton = document.getElementById('roll-button');
 const replayButton = document.getElementById('replay-button');
 const diceGrid = document.getElementById('dice-grid');
+
+// Mettre à jour l'affichage du nombre de dés
+diceCountInput.addEventListener('input', function () {
+    diceCountValue.textContent = this.value;
+});
 
 // Fonction pour générer un nombre aléatoire entre 1 et 6
 function rollDice() {
@@ -25,7 +33,14 @@ function createDiceDots(result) {
     } else if (result === 5) {
         dots.innerHTML = '<div class="dot dot2"></div><div class="dot dot3"></div><div class="dot dot4"></div><div class="dot dot5"></div><div class="dot dot1"></div>';
     } else if (result === 6) {
-        dots.innerHTML = '<div class="dot dot2"></div><div class="dot dot3"></div><div class="dot dot4"></div><div class="dot dot5"></div><div class="dot dot1"></div><div class="dot dot6"></div>';
+        dots.innerHTML = `
+            <div class="dot dot6-row1-left"></div>
+            <div class="dot dot6-row1-right"></div>
+            <div class="dot dot6-row2-left"></div>
+            <div class="dot dot6-row2-right"></div>
+            <div class="dot dot6-left"></div>
+            <div class="dot dot6-right"></div>
+        `;
     }
 
     return dots;
